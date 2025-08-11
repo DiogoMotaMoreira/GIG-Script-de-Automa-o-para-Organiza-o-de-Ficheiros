@@ -12,14 +12,16 @@ def ver_ficheiros(caminho):
         caminho_completo = os.path.join(caminho, nome_arquivo)
         if os.path.isfile(caminho_completo):
             _, extensao = os.path.splitext(nome_arquivo)
-            if extensao in pastas:
-                destino = os.path.join(caminho, extensao)
-                shutil.move(caminho_completo, os.path.join(destino, nome_arquivo))
-            else:
-                os.mkdir(os.path.join(caminho, extensao))
+            extensao = extensao.lower()
+            if extensao == '':
+                extensao = 'sem_extensao'  # para ficheiros sem extensão
+            if extensao not in pastas:
+                nova_pasta = os.path.join(caminho, extensao)
+                if not os.path.exists(nova_pasta):
+                    os.mkdir(nova_pasta)
                 pastas.append(extensao)
-                destino = os.path.join(caminho, extensao)
-                shutil.move(caminho_completo, os.path.join(destino, nome_arquivo))
+            destino = os.path.join(caminho, extensao)
+            shutil.move(caminho_completo, os.path.join(destino, nome_arquivo))
 
 if __name__ == "__main__":
     caminho = input("Insira o caminho da pasta: ")
