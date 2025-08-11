@@ -1,6 +1,6 @@
 # Gig 001 – Organizador de Ficheiros
 
-**Status:** 🚧 Em desenvolvimento  
+**Status:** Concluido  
 **Linguagem:** Python  
 **Cliente:** Byte & Order  
 **Origem:** Gerado por IA para treino e portefólio  
@@ -22,8 +22,23 @@ A "Byte & Order" está cansada de ter pastas desorganizadas no computador. Quere
 
 ---
 
-## 📂 Estrutura do Repositório
-
----
-
 ## ▶ Como Executar
+1. Instalar dependências
+
+Se ainda não tens, instala as bibliotecas necessárias (Pillow e ReportLab) com:
+``` bash
+pip install pillow reportlab
+```
+
+2. Gerar ficheiros de teste
+
+Executa o script que cria ficheiros aleatórios:
+``` bash
+python src/criar_ficheiros.py
+```
+3. Organizar os ficheiros
+
+Depois, executa o script principal para organizar os ficheiros em subpastas dentro de docs/pasta_teste:
+``` bash
+python src/main.py
+```
